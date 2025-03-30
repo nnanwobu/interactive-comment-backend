@@ -2,11 +2,11 @@
   "name": "Interactive-comment-section",
   "version": "1.0.0",
   "description": "Interactive-comment-section",
-  "main": "deServer.js",
+  "main": "server.js",
   "scripts": {
     "start": " nodemon server.js",
     "start:prod": "set NODE_ENV=production&&nodemon deServer.js",
-    "debug": "ndb deServer.js",
+    "debug": "ndb server.js",
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
     "build:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
   },
