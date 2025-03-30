@@ -69,7 +69,7 @@ app.all('*', (req, res, next) => {
   next(err);
 });
 
-app.use(globalErrorHandler);
+// app.use(globalErrorHandler);
 
 const port = process.env.PORT;
 const server = app.listen(port, () => {
