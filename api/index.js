@@ -65,7 +65,10 @@ app.use((req, res, next) => {
 //  Routes
 
 app.all('*', (req, res, next) => {
-  const err = new AppError(`can't find ${req.originalUrl} on this server`, 404);
+  const err = new AppError(
+    `cannot find ${req.originalUrl} on this server`,
+    404
+  );
   next(err);
 });
 
