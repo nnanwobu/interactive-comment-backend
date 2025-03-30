@@ -15,7 +15,7 @@ const replyRouter = require('./routers/replyRouter');
 const commentRouter = require('./routers/commentRouter');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-dotenv.config({ path: '../config.env' });
+dotenv.config({ path: './config.env' });
 const app = express();
 
 process.on('uncaughtException', (err) => {
@@ -42,7 +42,7 @@ app.use(
   helmet({ contentSecurityPolicy: false, crossOriginEmbedderPolicy: false })
 );
 
-app.set('view engine', 'pug');
+// app.set('view engine', 'pug');
 // app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());

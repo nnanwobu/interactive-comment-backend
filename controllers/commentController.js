@@ -1,7 +1,7 @@
 const Comment = require('../models/commentModel');
 // const User = require('./../models/usermodel');
 
-const AppError = require('./../utilities/apperror');
+const AppError = require('../utilities/apperror');
 
 exports.createComment = async (req, res, next) => {
   try {
