@@ -63,7 +63,9 @@ app.use((req, res, next) => {
   next();
 });
 //  Routes
-
+app.use('/api/v2/comments', userRouter);
+app.use('/api/v2/comments', replyRouter);
+app.use('/api/v2/comments', commentRouter);
 app.all('*', (req, res, next) => {
   const err = new AppError(`can't find ${req.originalUrl} on this server`, 404);
   next(err);
