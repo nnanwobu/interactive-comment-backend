@@ -13,7 +13,7 @@ const hpp = require('hpp');
 const userRouter = require('./routers/userRouter');
 const replyRouter = require('./routers/replyRouter');
 const commentRouter = require('./routers/commentRouter');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
 const app = express();
@@ -22,21 +22,21 @@ process.on('uncaughtException', (err) => {
   console.log('UNCAUGHT EXCEPTION! shutting down...');
   console.log(err.name, err.message);
 });
-const DB = process.env.CONNECTION_STRING.replace(
-  '<db_password>',
-  process.env.DATABASE_PASSWORD
-);
-mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true,
-  })
-  .then((con) => {
-    // console.log(con.connections);
-    console.log(' Remote connection established...');
-  });
+// const DB = process.env.CONNECTION_STRING.replace(
+//   '<db_password>',
+//   process.env.DATABASE_PASSWORD
+// );
+// mongoose
+//   .connect(DB, {
+//     useNewUrlParser: true,
+//     useCreateIndex: true,
+//     useFindAndModify: false,
+//     useUnifiedTopology: true,
+//   })
+//   .then((con) => {
+//     // console.log(con.connections);
+//     console.log(' Remote connection established...');
+//   });
 
 app.use(
   helmet({ contentSecurityPolicy: false, crossOriginEmbedderPolicy: false })
