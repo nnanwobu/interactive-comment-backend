@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
-const app = require('./appOld');
+const app = require('./app');
 process.on('uncaughtException', (err) => {
   console.log('UNCAUGHT EXCEPTION! shutting down...');
   console.log(err.name, err.message);
@@ -22,7 +22,7 @@ mongoose
   })
   .then((con) => {
     // console.log(con.connections);
-    console.log(' Remote connection established...');
+    console.log(' Remote connection established at this our...');
   });
 
 const port = process.env.PORT;
