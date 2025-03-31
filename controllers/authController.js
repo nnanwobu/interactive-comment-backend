@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/usermodel');
 const APIFeatures = require('../utilities/APIfeatures');
 const catchAsync = require('../utilities/catchAsync');
-const AppError = require('./../utilities/apperror');
+const AppError = require('../utilities/apperror');
 const Email = require('../utilities/email');
 
 const signInTotken = function (id) {

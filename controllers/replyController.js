@@ -1,5 +1,5 @@
 const User = require('../models/usermodel');
-const AppError = require('./../utilities/apperror');
+const AppError = require('../utilities/apperror');
 const Reply = require('../models/replyModel');
 
 exports.noCommentNoUser = (req, res, next) => {
