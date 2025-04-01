@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
-// const globalErrorHandler = require('./controllers/globalErrorHandler');
+const globalErrorHandler = require('./controllers/globalErrorHandler');
 const xss = require('xss-clean');
 const mongoSanitizer = require('express-mongo-sanitize');
 const AppError = require('./utilities/apperror');
@@ -57,6 +57,6 @@ app.all('*', (req, res, next) => {
   next(err);
 });
 
-// app.use(globalErrorHandler);
+app.use(globalErrorHandler);
 
 module.exports = app;
