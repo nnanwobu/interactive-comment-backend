@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
-const globalErrorHandler = require('./controllers/globalErrorHandler');
+// const globalErrorHandler = require('./controllers/globalErrorHandler');
 const xss = require('xss-clean');
 const mongoSanitizer = require('express-mongo-sanitize');
 const AppError = require('./utilities/apperror');
@@ -22,21 +22,6 @@ process.on('uncaughtException', (err) => {
   console.log('UNCAUGHT EXCEPTION! shutting down...');
   console.log(err.name, err.message);
 });
-// const DB = process.env.CONNECTION_STRING.replace(
-//   '<db_password>',
-//   process.env.DATABASE_PASSWORD
-// );
-// mongoose
-//   .connect(DB, {
-//     useNewUrlParser: true,
-//     useCreateIndex: true,
-//     useFindAndModify: false,
-//     useUnifiedTopology: true,
-//   })
-//   .then((con) => {
-//     // console.log(con.connections);
-//     console.log(' Remote connection established...');
-//   });
 
 app.use(
   helmet({ contentSecurityPolicy: false, crossOriginEmbedderPolicy: false })
@@ -72,6 +57,6 @@ app.all('*', (req, res, next) => {
   next(err);
 });
 
-app.use(globalErrorHandler);
+// app.use(globalErrorHandler);
 
 module.exports = app;
