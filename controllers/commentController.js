@@ -8,9 +8,7 @@ exports.createComment = async (req, res, next) => {
     const comment = await Comment.create(req.body);
     res.status(201).json({
       status: 'success',
-      data: {
-        comment,
-      },
+      comment,
     });
   } catch (err) {
     res.status(404).json({
@@ -25,9 +23,7 @@ exports.getComments = async (req, res, next) => {
     const comments = await Comment.find();
     res.status(200).json({
       status: 'success',
-      data: {
-        comments,
-      },
+      comments,
     });
   } catch (err) {
     res.status(404).json({
@@ -42,9 +38,7 @@ exports.getComment = async (req, res, next) => {
     const comment = await Comment.findById(req.params.id);
     res.status(200).json({
       status: 'success',
-      data: {
-        comment,
-      },
+      comment,
     });
   } catch (err) {
     res.status(404).json({
@@ -63,9 +57,7 @@ exports.updateComment = async (req, res) => {
 
     res.status(200).json({
       status: 'success',
-      data: {
-        comment,
-      },
+      comment,
     });
   } catch (err) {
     res.status(404).json({
