@@ -8,12 +8,10 @@ const globalErrorHandler = require('./controllers/globalErrorHandler');
 const xss = require('xss-clean');
 const mongoSanitizer = require('express-mongo-sanitize');
 const AppError = require('./utilities/apperror');
-
 const hpp = require('hpp');
 const userRouter = require('./routers/userRouter');
 const replyRouter = require('./routers/replyRouter');
 const commentRouter = require('./routers/commentRouter');
-const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
 const app = express();
