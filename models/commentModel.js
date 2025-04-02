@@ -53,12 +53,15 @@ commentSchema.virtual('replies', {
 });
 
 commentSchema.pre(/^find/, function (next) {
-  this.populate({ path: 'user', select: 'name photo score createdAt ' });
+  this.populate({ path: 'user', select: 'name photo ' });
 
   next();
 });
 commentSchema.pre(/^find/, function (next) {
-  this.populate({ path: 'replies', select: 'content user createdAt id' });
+  this.populate({
+    path: 'replies',
+    select: 'id score replyTo content createdAt  ',
+  });
 
   next();
 });
