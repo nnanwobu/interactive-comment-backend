@@ -48,6 +48,7 @@ app.use((req, res, next) => {
 //  Routes
 
 app.use('/api/v2/users', userRouter);
+app.use('/api/v2', userRouter);
 app.use('/api/v2/replies', replyRouter);
 app.use('/api/v2/comments', commentRouter);
 app.all('*', (req, res, next) => {

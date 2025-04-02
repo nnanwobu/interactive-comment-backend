@@ -36,19 +36,34 @@ exports.getUsers = async (req, res, next) => {
   }
 };
 
-exports.getUser = async (req, res, next) => {
+exports.getUserByEmail = async (req, res, next) => {
   try {
-    const user = await User.findById(req.params.id);
+    const user = await User.findOne({ email: req.params.email });
+
     res.status(200).json({
       status: 'success',
-      data: {
-        user,
-      },
+      user,
     });
   } catch (err) {
     res.status(404).json({
       status: 'fail',
-      message: 'err',
+      message: err.message,
+    });
+  }
+};
+
+exports.getUser = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.params.id);
+
+    res.status(200).json({
+      status: 'success',
+      user,
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err,
     });
   }
 };
