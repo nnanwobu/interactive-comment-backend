@@ -12,21 +12,12 @@ const hpp = require('hpp');
 const userRouter = require('./routers/userRouter');
 const replyRouter = require('./routers/replyRouter');
 const commentRouter = require('./routers/commentRouter');
-const dotenv = require('dotenv');
-dotenv.config({ path: './config.env' });
 const app = express();
-
-process.on('uncaughtException', (err) => {
-  console.log('UNCAUGHT EXCEPTION! shutting down...');
-  console.log(err.name, err.message);
-});
 
 app.use(
   helmet({ contentSecurityPolicy: false, crossOriginEmbedderPolicy: false })
 );
 
-// app.set('view engine', 'pug');
-// app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: '100kb' }));
@@ -46,11 +37,11 @@ app.use((req, res, next) => {
   next();
 });
 //  Routes
-
+// app.use('/api/v2/', userRouter);
 app.use('/api/v2/users', userRouter);
-app.use('/api/v2', userRouter);
 app.use('/api/v2/replies', replyRouter);
 app.use('/api/v2/comments', commentRouter);
+
 app.all('*', (req, res, next) => {
   const err = new AppError(`can't find ${req.originalUrl} on this server`, 404);
   next(err);

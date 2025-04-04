@@ -7,14 +7,21 @@ process.on('uncaughtException', (err) => {
   console.log(err.name, err.message);
   // server.close(()=>process.exit())
 });
+// const Comment = require('./models/commentModel');
 
 const DB = process.env.CONNECTION_STRING.replace(
   '<db_password>',
   process.env.DATABASE_PASSWORD
 );
+// {
+//   useNewUrlParser: true,
+//   useCreateIndex: true,
+//   useFindAndModify: false,
+//   useUnifiedTopology: true,
+// }
 mongoose.connect(DB).then((con) => {
   // console.log(con.connections);
-  console.log(' Remote connection established...');
+  console.log(' Remote connection established at this our...');
 });
 
 const port = process.env.PORT;

@@ -1,3 +1,2 @@
-# Interactive comment Application
-
-built using modern Technologies: Node.js, express,MongoDB, mongoose
+# Natours Application
+built using modern Technologies: Node.js, express,MongoDB, mongoose and friends😎

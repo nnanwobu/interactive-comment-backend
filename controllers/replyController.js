@@ -1,5 +1,10 @@
-const User = require('../models/usermodel');
-const AppError = require('../utilities/apperror');
+// const catchAsync = require('../utilities/catchAsync');
+// const Review = require('../models/reviewModel');
+// const factory = require('./handlerFactory');
+
+const User = require('./../models/usermodel');
+
+const AppError = require('./../utilities/apperror');
 const Reply = require('../models/replyModel');
 
 exports.noCommentNoUser = (req, res, next) => {

@@ -1,6 +1,6 @@
-const User = require('../models/usermodel');
+const User = require('./../models/usermodel');
 
-const AppError = require('../utilities/apperror');
+const AppError = require('./../utilities/apperror');
 
 exports.createUser = async (req, res, next) => {
   try {
@@ -36,38 +36,39 @@ exports.getUsers = async (req, res, next) => {
   }
 };
 
-exports.getUserByEmail = async (req, res, next) => {
-  try {
-    const user = await User.findOne({ email: req.params.email });
-
-    res.status(200).json({
-      status: 'success',
-      user,
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err.message,
-    });
-  }
-};
-
 exports.getUser = async (req, res, next) => {
   try {
     const user = await User.findById(req.params.id);
-
     res.status(200).json({
       status: 'success',
-      user,
+      data: {
+        user,
+      },
     });
   } catch (err) {
     res.status(404).json({
       status: 'fail',
-      message: err,
+      message: 'err',
     });
   }
 };
 
+exports.getUserByEmail = async (req, res, next) => {
+  try {
+    const user = await User.findOne({ email: req.params.email });
+    res.status(200).json({
+      status: 'success',
+      data: {
+        user,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: 'err',
+    });
+  }
+};
 exports.updateUser = async (req, res) => {
   try {
     const user = await User.findByIdAndUpdate(req.params.id, req.body, {

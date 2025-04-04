@@ -1,7 +1,4 @@
 const mongoose = require('mongoose');
-// const User = require('./usermodel');
-
-// const Reply = require('./replyModel');
 
 const commentSchema = new mongoose.Schema(
   {
@@ -21,24 +18,11 @@ const commentSchema = new mongoose.Schema(
         ref: 'User',
       },
     ],
-    // replies: [
-    //   {
-    //     type: mongoose.Schema.ObjectId,
-    //     ref: 'Reply',
-    //   },
-    // ],
 
     createdAt: {
       type: Date,
       default: Date.now(),
     },
-
-    //     reviews:[{
-
-    //         type: mongoose.Schema.ObjectId,
-    //         ref: Review
-    //     }
-    // ],
   },
   {
     toJSON: { virtuals: true },
@@ -53,14 +37,14 @@ commentSchema.virtual('replies', {
 });
 
 commentSchema.pre(/^find/, function (next) {
-  this.populate({ path: 'user', select: 'name photo ' });
+  this.populate({ path: 'user', select: 'name photo email active' });
 
   next();
 });
 commentSchema.pre(/^find/, function (next) {
   this.populate({
     path: 'replies',
-    select: 'id score replyTo content createdAt  ',
+    select: 'id content user score replyTo createdAt ',
   });
 
   next();

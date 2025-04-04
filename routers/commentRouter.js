@@ -1,7 +1,5 @@
 const express = require('express');
-
 const replyRouter = require('./replyRouter');
-
 const {
   getComments,
   createComment,
@@ -9,7 +7,6 @@ const {
   updateComment,
   deleteComment,
 } = require('../controllers/commentController');
-
 const router = express.Router();
 
 router.use('/:commentId/replies', replyRouter);
