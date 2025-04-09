@@ -8,7 +8,7 @@ const AppError = require('./../utilities/apperror');
 const Reply = require('../models/replyModel');
 
 exports.noCommentNoUser = (req, res, next) => {
-  if (!req.body.comment) req.body.comment = req.params.commentId;
+  if (!req.body.comment) req.body.comment = req.params.commentID;
   if (!req.body.user) req.body.user = '67e6c5908c3599577ca4e6ac';
   next();
 };

@@ -22,6 +22,14 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
+  createddAt: {
+    type: Date,
+    default: new Date(),
+  },
+  updatedAt: {
+    type: Date,
+    default: new Date(),
+  },
 });
 
 const User = mongoose.model('User', userSchema);
